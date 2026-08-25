@@ -165,6 +165,12 @@ header::before {
   box-shadow: 0 8px 22px -6px rgba(185, 28, 28, 0.5);
 }
 
+.nav-btn.teacher {
+  background: linear-gradient(120deg, #6d28d9, #4c1d95);
+  color: #ffffff;
+  box-shadow: 0 8px 22px -6px rgba(109, 40, 217, 0.5);
+}
+
 .statusbar {
   position: relative;
   display: flex;
@@ -449,6 +455,25 @@ header p.subtitle {
   color: var(--text);
 }
 
+/* ============ הגדלות פונטים ייעודיות ============ */
+.large-font-section h4 {
+  font-size: 19px !important;
+}
+
+.large-font-section p {
+  font-size: 17px !important;
+  line-height: 1.8 !important;
+}
+
+.large-font-grid .spec-card span {
+  font-size: 13px !important;
+}
+
+.large-font-grid .spec-card b {
+  font-size: 16px !important;
+  line-height: 1.5 !important;
+}
+
 /* ============ מבדק ורפלקציה ============ */
 .quiz-q {
   margin-bottom: 20px;
@@ -462,6 +487,7 @@ header p.subtitle {
   font-weight: 800;
   margin-top: 0;
   margin-bottom: 12px;
+  font-size: 16px;
 }
 
 .quiz-opt {
@@ -469,7 +495,7 @@ header p.subtitle {
   margin: 8px 0;
   cursor: pointer;
   font-weight: 600;
-  font-size: 14.5px;
+  font-size: 15px;
 }
 
 .quiz-opt input {
@@ -479,9 +505,9 @@ header p.subtitle {
 .quiz-feedback {
   margin-top: 8px;
   font-weight: 800;
-  font-size: 13.5px;
+  font-size: 14px;
   display: none;
-  padding: 8px;
+  padding: 8px 12px;
   border-radius: 6px;
 }
 
@@ -530,7 +556,7 @@ header p.subtitle {
   color: var(--text);
   padding: 12px;
   font-family: inherit;
-  font-size: 14px;
+  font-size: 15px;
   resize: vertical;
 }
 
@@ -813,7 +839,7 @@ footer {
       <button class="tab-btn active" onclick="openTab(event, 'intro')">🌐 תפקיד השכבה והמידע</button>
       <button class="tab-btn" onclick="openTab(event, 'dns')">📖 פרוטוקול <span dir="ltr">DNS</span> - ספר טלפונים</button>
       <button class="tab-btn" onclick="openTab(event, 'http')">🔒 <span dir="ltr">HTTP / HTTPS</span> - גלישה ברשת</button>
-      <button class="tab-btn" onclick="openTab(event, 'dhcp')">⚙️ פרוטוקול <span dir="ltr">DHCP</span> - <span dir="ltr">DORA</span> ו-<span dir="ltr">APIPA</span></button>
+      <button class="tab-btn" onclick="openTab(event, 'dhcp')">⚙️ פרוטוקול <span dir="ltr">DHCP</span> - <span dir="ltr">D.O.R.A</span> ו-<span dir="ltr">APIPA</span></button>
       <button class="tab-btn" onclick="openTab(event, 'quiz')">📝 מבדק ידע אינטראקטיבי</button>
       <button class="tab-btn" onclick="openTab(event, 'reflection')">🧠 רפלקציה אישית</button>
     </div>
@@ -822,7 +848,6 @@ footer {
     <div id="intro" class="tab-content active">
       <div class="component-grid">
         <div class="comp-media">
-          <!-- התמונה הוקטנה במעט ומיקוד הצילום הוגדר לחלק העליון (object-position: top) כדי שיראו את האווטר -->
           <img class="comp-img" src="https://lh3.googleusercontent.com/d/1oApyO9t3Hor5tte7SAca_6O-O0onkoEP" alt="שכבת האפליקציה" style="width: 100%; height: auto; max-height: 310px; object-fit: cover; object-position: top;">
           <div class="meta-box">
             <div class="meta-item"><span class="meta-label">שכבת <span dir="ltr">OSI</span>:</span><span class="meta-val">Layer 7 (Application)</span></div>
@@ -839,9 +864,10 @@ footer {
             <p>שכבה 7 היא השכבה העליונה ביותר במודל <span dir="ltr">OSI/TCP-IP</span>. זוהי השכבה היחידה שאיתה המשתמש או התוכנות שלו - הדפדפן, תוכנת המייל, המשחק - באים במגע ישיר. תפקידה לספק שירותי רשת לאפליקציות, לקבל את המידע הגולמי - <span dir="ltr">Payload</span> - ולהעביר אותו כלפי מטה בצינור הפרוטוקולים לצורך אריזה ומשלוח.</p>
           </div>
 
-          <div class="section-box" style="border-color: var(--green);">
+          <!-- הוגדלו הפונטים בחלונית זו -->
+          <div class="section-box large-font-section" style="border-color: var(--green);">
             <h4 style="color: var(--green);">🛠️ תפקידים מרכזיים בשכבה 7</h4>
-            <div class="spec-grid">
+            <div class="spec-grid large-font-grid">
               <div class="spec-card"><span>זיהוי שירותים</span><b>הגדרת סוג השירות: <span dir="ltr">Web, Mail, File</span></b></div>
               <div class="spec-card"><span>מודל תקשורת</span><b><span dir="ltr">Client-Server</span> או <span dir="ltr">Peer-to-Peer (P2P)</span></b></div>
               <div class="spec-card"><span>תרגום שמות</span><b>ממשק אדם-מכונה: <span dir="ltr">Domain Names ↔ IP</span></b></div>
@@ -874,12 +900,13 @@ footer {
           
           <div class="section-box">
             <h4>⚡ ספר הטלפונים של האינטרנט</h4>
-            <p>בני אדם מעולים בלזכור שמות כמו <span class="mono">google.com</span>, אבל מחשבים ונתבים עובדים רק עם כתובות <span dir="ltr">IP</span> במספרים - כמו <span class="mono">142.250.185.78</span>. פרוטוקול <span dir="ltr">DNS</span> פותר את הבעיה: הוא מקבל את השם שרשמתם בדפדפן ומחזיר למחשב שלכם את כתובת ה-<span dir="ltr">IP</span> المדויקת של השרת!</p>
+            <p>בני אדם מעולים בלזכור שמות כמו <span class="mono">google.com</span>, אבל מחשבים ונתבים עובדים רק עם כתובות <span dir="ltr">IP</span> במספרים - כמו <span class="mono">142.250.185.78</span>. פרוטוקול <span dir="ltr">DNS</span> פותר את הבעיה: הוא מקבל את השם שרשמתם בדפדפן ומחזיר למחשב שלכם את כתובת ה-<span dir="ltr">IP</span> המדויקת של השרת!</p>
           </div>
 
-          <div class="section-box" style="border-color: var(--green);">
+          <!-- הוגדלו הפונטים בחלונית זו -->
+          <div class="section-box large-font-section" style="border-color: var(--green);">
             <h4 style="color: var(--green);">🛠️ רשומות <span dir="ltr">DNS</span> נפוצות שחובה להכיר</h4>
-            <div class="spec-grid">
+            <div class="spec-grid large-font-grid">
               <div class="spec-card"><span>רשומת A</span><b>תרגום שם לכתובת <span dir="ltr">IPv4</span></b></div>
               <div class="spec-card"><span>רשומת AAAA</span><b>תרגום שם לכתובת <span dir="ltr">IPv6</span></b></div>
               <div class="spec-card"><span>רשומת CNAME</span><b>כינוי - <span dir="ltr">Alias</span> - לשם מתחם אחר</b></div>
@@ -915,9 +942,10 @@ footer {
             <p>פרוטוקול <b><span dir="ltr">HTTP</span></b> אחראי על העברת דפי אינטרנט, תמונות, וידאו ונתוני <span dir="ltr">JSON</span> משרת ה-<span dir="ltr">Web</span> אל הדפדפן שלכם. הוא עובד במודל של בקשה ותשובה - <span dir="ltr">Request-Response</span>. גרסתו המאובטחת, <b><span dir="ltr">HTTPS</span></b>, מוסיפה שכבת הצפנה חזקה - <span dir="ltr">TLS/SSL</span> - שמגנה על הסיסמאות והאשראי שלכם מפני צותתים ברשת!</p>
           </div>
 
-          <div class="section-box" style="border-color: var(--green);">
+          <!-- הוגדלו הפונטים בחלונית זו -->
+          <div class="section-box large-font-section" style="border-color: var(--green);">
             <h4 style="color: var(--green);">🛠️ קודי תגובה - <span dir="ltr">Status Codes</span> - שחובה להכיר</h4>
-            <div class="spec-grid">
+            <div class="spec-grid large-font-grid">
               <div class="spec-card"><span>200 OK</span><b>הבקשה הצליחה! המידע הגיע</b></div>
               <div class="spec-card"><span>301 / 302</span><b>הפניה מחדש - <span dir="ltr">Redirect</span></b></div>
               <div class="spec-card"><span>404 Not Found</span><b>הדף או הקובץ המבוקש לא קיים</b></div>
@@ -953,9 +981,10 @@ footer {
             <p>כאשר מחשב או טלפון מתחבר ל-<span dir="ltr">Wi-Fi</span>, אין לו עדיין כתובת <span dir="ltr">IP</span>! פרוטוקול <b><span dir="ltr">DHCP</span></b> הוא השירות בשכבה 7 שמעניק לו כתובת <span dir="ltr">IP</span>, מסיכת רשת - <span dir="ltr">Subnet Mask</span>, שער מחדש - <span dir="ltr">Default Gateway</span> - וכתובות שרתי <span dir="ltr">DNS</span> באופן אוטומטי לחלוטין!</p>
           </div>
 
-          <div class="section-box" style="border-color: var(--green);">
+          <!-- הוגדלו הפונטים בחלונית D.O.R.A -->
+          <div class="section-box large-font-section" style="border-color: var(--green);">
             <h4 style="color: var(--green);">🛠️ ארבעת שלבי תהליך <span dir="ltr">D.O.R.A</span></h4>
-            <div class="spec-grid">
+            <div class="spec-grid large-font-grid">
               <div class="spec-card"><span>1. Discover (D)</span><b>הלקוח צועק: מישהו פה שרת <span dir="ltr">DHCP</span>? - <span dir="ltr">Broadcast</span></b></div>
               <div class="spec-card"><span>2. Offer (O)</span><b>השרת עונה: יש לי כתובת <span dir="ltr">IP</span> להציע לך!</b></div>
               <div class="spec-card"><span>3. Request (R)</span><b>הלקוח משיב: מעולה! אני אשמח לקבל את הכתובת</b></div>
@@ -963,12 +992,12 @@ footer {
             </div>
           </div>
 
-          <!-- תת-פרק מפורט: APIPA -->
-          <div class="section-box" style="border-color: var(--violet); background: var(--violet-soft);">
+          <!-- הוגדלו הפונטים בחלונית APIPA -->
+          <div class="section-box large-font-section" style="border-color: var(--violet); background: var(--violet-soft);">
             <h4 style="color: var(--violet);">⚠️ מה קורה כששרת ה-<span dir="ltr">DHCP</span> נכשל? - מנגנון <span dir="ltr">APIPA</span></h4>
             <p>כאשר מחשב שמוגדר לקבל כתובת אוטומטית שולח הודעת <span dir="ltr">Discover</span> אך <b>אינו מקבל מענה</b> משרת <span dir="ltr">DHCP</span> - בגלל שרת כבוי, נתק ברשת או בעיית כבל - מופעל מנגנון החירום <b><span dir="ltr">APIPA - Automatic Private IP Addressing</span></b>.</p>
             
-            <div class="spec-grid" style="margin-top: 14px;">
+            <div class="spec-grid large-font-grid" style="margin-top: 14px;">
               <div class="spec-card">
                 <span>טווח הכתובות</span>
                 <b><span class="mono">169.254.0.1</span> עד <span class="mono">169.254.255.254</span></b>
@@ -984,7 +1013,7 @@ footer {
               <div class="spec-card"><span>פקודת פתרון תקלות</span><b><span class="mono">ipconfig /renew</span> בשרת התקני</b></div>
             </div>
 
-            <p style="margin-top: 12px; font-size: 14px; color: var(--text-muted);">
+            <p style="margin-top: 14px; font-size: 16px !important; color: var(--text);">
               💡 <b>תסמין זיהוי בשטח:</b> ראיתם כתובת המתחילה ב-<span class="mono">169.254.x.x</span> במחשב? זהו הדגל האדום לכך שהמחשב אינו מצליח לדבר עם שרת ה-<span dir="ltr">DHCP</span>! ברגע שזה קורה, המחשב יוכל לדבר רק עם מחשבים ששוכנים לידו באותה רשת פיזית, אך <b>לא</b> יוכל לעבור דרך הנתב - רשת ללא <span dir="ltr">Default Gateway</span>.
             </p>
           </div>
@@ -1091,7 +1120,11 @@ footer {
         <div id="q10-fb" class="quiz-feedback"></div>
       </div>
 
-      <button class="nav-btn solid" onclick="checkQuiz()" style="margin-top: 10px;">בדוק תשובות וחשב ציון 🎯</button>
+      <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 15px;">
+        <button class="nav-btn solid" onclick="checkQuiz()">בדוק תשובות וחשב ציון 🎯</button>
+        <!-- כפתור מורה מעוצב -->
+        <button class="nav-btn teacher" onclick="teacherAccess()">👨‍🏫 מורה - הצג תשובות נכונות</button>
+      </div>
 
       <div id="quiz-score-box">
         <h4>תוצאת המבדק:</h4>
@@ -1155,6 +1188,19 @@ footer {
 </footer>
 
 <script>
+const answers = {
+  q1: { correct: 'b', text: 'DNS מתרגם שמות מתחם לכתובות IP.' },
+  q2: { correct: 'c', text: 'תהליך הקצאת ה-IP האוטומטי נקרא DORA: Discover, Offer, Request, Acknowledge.' },
+  q3: { correct: 'b', text: 'כאשר שרת DHCP אינו זמין, המחשב מנפיק כתובת APIPA בטווח 169.254.x.x.' },
+  q4: { correct: 'c', text: 'HTTP פועל מעל פורט 80 ו-HTTPS המוצפן פועל מעל פורט 443.' },
+  q5: { correct: 'c', text: 'קוד סטטוס 404 מסמן שהמשאב המבוקש לא נמצא בשרת.' },
+  q6: { correct: 'b', text: 'רשומת A מתרגמת שם דומיין לכתובת IPv4. רשומת AAAA משמשת ל-IPv6.' },
+  q7: { correct: 'd', text: 'יחידת המידע PDU בשכבה 7 נקראת Data או Payload.' },
+  q8: { correct: 'b', text: 'פרוטוקול SSH פועל בפורט 22 ומספק גישה מרחוק מוצפנת ומאובטחת.' },
+  q9: { correct: 'a', text: 'פרוטוקול DHCP משתמש בפורטי UDP 67 עבור השרת ו-68 עבור הלקוח.' },
+  q10: { correct: 'c', text: 'במודל Peer-to-Peer P2P כל תחנה פועלת בו-זמנית גם כשרת וגם כלקוח.' }
+};
+
 function openTab(evt, tabName) {
   var i, tabcontent, tablinks;
   
@@ -1191,19 +1237,6 @@ function expandBot(evt){
 }
 
 function checkQuiz() {
-  const answers = {
-    q1: { correct: 'b', text: 'DNS מתרגם שמות מתחם לכתובות IP.' },
-    q2: { correct: 'c', text: 'תהליך הקצאת ה-IP האוטומטי נקרא DORA: Discover, Offer, Request, Acknowledge.' },
-    q3: { correct: 'b', text: 'כאשר שרת DHCP אינו זמין, המחשב מנפיק כתובת APIPA בטווח 169.254.x.x.' },
-    q4: { correct: 'c', text: 'HTTP פועל מעל פורט 80 ו-HTTPS המוצפן פועל מעל פורט 443.' },
-    q5: { correct: 'c', text: 'קוד סטטוס 404 מסמן שהמשאב המבוקש לא נמצא בשרת.' },
-    q6: { correct: 'b', text: 'רשומת A מתרגמת שם דומיין לכתובת IPv4. רשומת AAAA משמשת ל-IPv6.' },
-    q7: { correct: 'd', text: 'יחידת המידע PDU בשכבה 7 נקראת Data או Payload.' },
-    q8: { correct: 'b', text: 'פרוטוקול SSH פועל בפורט 22 ומספק גישה מרחוק מוצפנת ומאובטחת.' },
-    q9: { correct: 'a', text: 'פרוטוקול DHCP משתמש בפורטי UDP 67 עבור השרת ו-68 עבור הלקוח.' },
-    q10: { correct: 'c', text: 'במודל Peer-to-Peer P2P כל תחנה פועלת בו-זמנית גם כשרת וגם כלקוח.' }
-  };
-
   let score = 0;
   const totalQuestions = 10;
 
@@ -1241,6 +1274,24 @@ function checkQuiz() {
   }
 
   scoreBox.scrollIntoView({ behavior: 'smooth' });
+}
+
+function teacherAccess() {
+  const pass = prompt("אנא הזן סיסמת מורה:");
+  if (pass === "sahar") {
+    for (let i = 1; i <= 10; i++) {
+      const qKey = 'q' + i;
+      const correctVal = answers[qKey].correct;
+      const radio = document.querySelector(`input[name="${qKey}"][value="${correctVal}"]`);
+      if (radio) {
+        radio.checked = true;
+      }
+    }
+    checkQuiz();
+    alert("תשובות מורה הוגדרו בהצלחה! ✅");
+  } else if (pass !== null) {
+    alert("סיסמה שגויה! ❌ Access Denied");
+  }
 }
 </script>
 
