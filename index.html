@@ -75,12 +75,35 @@ body {
   direction: ltr; 
   display: inline-block; 
   unicode-bidi: isolate;
+  border: 1px solid var(--cyan);
+  border-radius: 6px;
+  padding: 2px 6px;
+  background: var(--cyan-soft);
+  color: var(--cyan);
+  font-weight: 700;
 }
 
 .en {
   direction: ltr;
   display: inline-block;
   unicode-bidi: isolate;
+  border: 1px solid var(--panel-border);
+  border-radius: 6px;
+  padding: 2px 6px;
+  background: var(--card);
+  margin: 0 2px;
+}
+
+span[dir="ltr"] {
+  display: inline-block;
+  border: 1px solid var(--cyan);
+  border-radius: 6px;
+  padding: 1px 6px;
+  background: var(--cyan-soft);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.95em;
+  color: var(--cyan);
+  font-weight: 700;
 }
 
 /* ============ HEADER ============ */
@@ -137,7 +160,7 @@ header::before {
 
 .nav-btn {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   padding: 10px 18px;
   border-radius: 11px;
@@ -178,7 +201,7 @@ header::before {
   justify-content: center;
   gap: 10px;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 12.5px;
+  font-size: 13.5px;
   letter-spacing: 0.4px;
   color: #b45309;
   margin-bottom: 22px;
@@ -212,7 +235,7 @@ header p.subtitle {
   margin: 4px 0 26px;
   color: #c2410c;
   font-weight: 700;
-  font-size: 17px;
+  font-size: 18px;
 }
 
 .protocol-row {
@@ -225,7 +248,7 @@ header p.subtitle {
 
 .protocol-chip {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
   color: #b91c1c;
   background: rgba(255, 255, 255, 0.55);
@@ -267,7 +290,7 @@ header p.subtitle {
 .panel-head h2 {
   color: var(--text);
   font-family: 'Rubik', 'Assistant', sans-serif;
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 800;
   margin: 0;
   display: flex;
@@ -277,7 +300,7 @@ header p.subtitle {
 
 .panel-tag {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 11.5px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.6px;
   color: var(--cyan);
@@ -301,7 +324,7 @@ header p.subtitle {
 
 .tab-btn {
   font-family: 'Rubik', sans-serif;
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 800;
   padding: 12px 20px;
   border: 1px solid var(--panel-border);
@@ -374,9 +397,9 @@ header p.subtitle {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 0;
+  padding: 10px 0;
   border-bottom: 1px dashed var(--panel-border);
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .meta-item:last-child { border-bottom: none; }
@@ -392,7 +415,7 @@ header p.subtitle {
 
 .comp-title {
   font-family: 'Rubik', sans-serif;
-  font-size: 26px;
+  font-size: 28px;
   font-weight: 900;
   margin: 0;
   color: var(--text);
@@ -405,13 +428,13 @@ header p.subtitle {
   background: var(--bg);
   border-right: 4px solid var(--cyan);
   border-radius: 8px;
-  padding: 16px;
+  padding: 18px;
 }
 
 .section-box h4 {
-  margin: 0 0 8px 0;
+  margin: 0 0 10px 0;
   font-family: 'Rubik', sans-serif;
-  font-size: 16px;
+  font-size: 20px;
   color: var(--cyan);
   display: flex;
   align-items: center;
@@ -420,64 +443,65 @@ header p.subtitle {
 
 .section-box p {
   margin: 0;
-  font-size: 15px;
-  line-height: 1.7;
+  font-size: 18px;
+  line-height: 1.8;
   font-weight: 600;
   color: var(--text);
 }
 
 .spec-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
 }
 
 .spec-card {
   background: var(--card);
   border: 1px solid var(--panel-border);
   border-radius: 10px;
-  padding: 12px;
+  padding: 14px;
 }
 
 .spec-card span {
   display: block;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
+  font-size: 13px;
   color: var(--text-muted);
-  margin-bottom: 4px;
+  margin-bottom: 6px;
   direction: ltr;
   text-align: right;
 }
 
 .spec-card b {
-  font-size: 13.5px;
+  font-size: 16px;
   font-weight: 800;
   color: var(--text);
+  line-height: 1.5;
 }
 
 /* ============ הגדלות פונטים ייעודיות ============ */
 .large-font-section h4 {
-  font-size: 19px !important;
+  font-size: 21px !important;
 }
 
 .large-font-section p {
-  font-size: 17px !important;
+  font-size: 18px !important;
   line-height: 1.8 !important;
 }
 
 .large-font-grid .spec-card span {
-  font-size: 13px !important;
+  font-size: 13.5px !important;
 }
 
 .large-font-grid .spec-card b {
-  font-size: 16px !important;
+  font-size: 17px !important;
   line-height: 1.5 !important;
 }
 
 /* ============ מבדק ורפלקציה ============ */
 .quiz-q {
-  margin-bottom: 20px;
-  padding: 16px;
+  margin-bottom: 22px;
+  padding: 18px;
   background: var(--bg);
   border-radius: 12px;
   border: 1px solid var(--panel-border);
@@ -486,16 +510,16 @@ header p.subtitle {
 .quiz-q p {
   font-weight: 800;
   margin-top: 0;
-  margin-bottom: 12px;
-  font-size: 16px;
+  margin-bottom: 14px;
+  font-size: 18px;
 }
 
 .quiz-opt {
   display: block;
-  margin: 8px 0;
+  margin: 10px 0;
   cursor: pointer;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 17px;
 }
 
 .quiz-opt input {
@@ -503,11 +527,11 @@ header p.subtitle {
 }
 
 .quiz-feedback {
-  margin-top: 8px;
+  margin-top: 10px;
   font-weight: 800;
-  font-size: 14px;
+  font-size: 16px;
   display: none;
-  padding: 8px 12px;
+  padding: 10px 14px;
   border-radius: 6px;
 }
 
@@ -535,13 +559,13 @@ header p.subtitle {
 
 #quiz-score-box h4 {
   margin: 0 0 10px 0;
-  font-size: 22px;
+  font-size: 24px;
   font-family: 'Rubik', sans-serif;
   color: var(--cyan);
 }
 
 .score-number {
-  font-size: 36px;
+  font-size: 40px;
   font-weight: 900;
   font-family: 'JetBrains Mono', monospace;
   color: var(--text);
@@ -549,14 +573,14 @@ header p.subtitle {
 
 .reflection-textarea {
   width: 100%;
-  min-height: 100px;
+  min-height: 120px;
   border-radius: 10px;
   border: 1px solid var(--panel-border);
   background: var(--bg);
   color: var(--text);
-  padding: 12px;
+  padding: 14px;
   font-family: inherit;
-  font-size: 15px;
+  font-size: 17px;
   resize: vertical;
 }
 
@@ -741,7 +765,7 @@ footer {
   color: var(--text-muted);
   font-weight: 700;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 12.5px;
+  font-size: 13.5px;
   text-align: center;
   padding: 26px;
   margin-top: 50px;
@@ -864,7 +888,6 @@ footer {
             <p>שכבה 7 היא השכבה העליונה ביותר במודל <span dir="ltr">OSI/TCP-IP</span>. זוהי השכבה היחידה שאיתה המשתמש או התוכנות שלו - הדפדפן, תוכנת המייל, המשחק - באים במגע ישיר. תפקידה לספק שירותי רשת לאפליקציות, לקבל את המידע הגולמי - <span dir="ltr">Payload</span> - ולהעביר אותו כלפי מטה בצינור הפרוטוקולים לצורך אריזה ומשלוח.</p>
           </div>
 
-          <!-- הוגדלו הפונטים בחלונית זו -->
           <div class="section-box large-font-section" style="border-color: var(--green);">
             <h4 style="color: var(--green);">🛠️ תפקידים מרכזיים בשכבה 7</h4>
             <div class="spec-grid large-font-grid">
@@ -903,7 +926,6 @@ footer {
             <p>בני אדם מעולים בלזכור שמות כמו <span class="mono">google.com</span>, אבל מחשבים ונתבים עובדים רק עם כתובות <span dir="ltr">IP</span> במספרים - כמו <span class="mono">142.250.185.78</span>. פרוטוקול <span dir="ltr">DNS</span> פותר את הבעיה: הוא מקבל את השם שרשמתם בדפדפן ומחזיר למחשב שלכם את כתובת ה-<span dir="ltr">IP</span> המדויקת של השרת!</p>
           </div>
 
-          <!-- הוגדלו הפונטים בחלונית זו -->
           <div class="section-box large-font-section" style="border-color: var(--green);">
             <h4 style="color: var(--green);">🛠️ רשומות <span dir="ltr">DNS</span> נפוצות שחובה להכיר</h4>
             <div class="spec-grid large-font-grid">
@@ -942,7 +964,6 @@ footer {
             <p>פרוטוקול <b><span dir="ltr">HTTP</span></b> אחראי על העברת דפי אינטרנט, תמונות, וידאו ונתוני <span dir="ltr">JSON</span> משרת ה-<span dir="ltr">Web</span> אל הדפדפן שלכם. הוא עובד במודל של בקשה ותשובה - <span dir="ltr">Request-Response</span>. גרסתו המאובטחת, <b><span dir="ltr">HTTPS</span></b>, מוסיפה שכבת הצפנה חזקה - <span dir="ltr">TLS/SSL</span> - שמגנה על הסיסמאות והאשראי שלכם מפני צותתים ברשת!</p>
           </div>
 
-          <!-- הוגדלו הפונטים בחלונית זו -->
           <div class="section-box large-font-section" style="border-color: var(--green);">
             <h4 style="color: var(--green);">🛠️ קודי תגובה - <span dir="ltr">Status Codes</span> - שחובה להכיר</h4>
             <div class="spec-grid large-font-grid">
@@ -981,7 +1002,6 @@ footer {
             <p>כאשר מחשב או טלפון מתחבר ל-<span dir="ltr">Wi-Fi</span>, אין לו עדיין כתובת <span dir="ltr">IP</span>! פרוטוקול <b><span dir="ltr">DHCP</span></b> הוא השירות בשכבה 7 שמעניק לו כתובת <span dir="ltr">IP</span>, מסיכת רשת - <span dir="ltr">Subnet Mask</span>, שער מחדש - <span dir="ltr">Default Gateway</span> - וכתובות שרתי <span dir="ltr">DNS</span> באופן אוטומטי לחלוטין!</p>
           </div>
 
-          <!-- הוגדלו הפונטים בחלונית D.O.R.A -->
           <div class="section-box large-font-section" style="border-color: var(--green);">
             <h4 style="color: var(--green);">🛠️ ארבעת שלבי תהליך <span dir="ltr">D.O.R.A</span></h4>
             <div class="spec-grid large-font-grid">
@@ -992,7 +1012,6 @@ footer {
             </div>
           </div>
 
-          <!-- הוגדלו הפונטים בחלונית APIPA -->
           <div class="section-box large-font-section" style="border-color: var(--violet); background: var(--violet-soft);">
             <h4 style="color: var(--violet);">⚠️ מה קורה כששרת ה-<span dir="ltr">DHCP</span> נכשל? - מנגנון <span dir="ltr">APIPA</span></h4>
             <p>כאשר מחשב שמוגדר לקבל כתובת אוטומטית שולח הודעת <span dir="ltr">Discover</span> אך <b>אינו מקבל מענה</b> משרת <span dir="ltr">DHCP</span> - בגלל שרת כבוי, נתק ברשת או בעיית כבל - מופעל מנגנון החירום <b><span dir="ltr">APIPA - Automatic Private IP Addressing</span></b>.</p>
@@ -1013,7 +1032,7 @@ footer {
               <div class="spec-card"><span>פקודת פתרון תקלות</span><b><span class="mono">ipconfig /renew</span> בשרת התקני</b></div>
             </div>
 
-            <p style="margin-top: 14px; font-size: 16px !important; color: var(--text);">
+            <p style="margin-top: 14px; font-size: 18px !important; color: var(--text);">
               💡 <b>תסמין זיהוי בשטח:</b> ראיתם כתובת המתחילה ב-<span class="mono">169.254.x.x</span> במחשב? זהו הדגל האדום לכך שהמחשב אינו מצליח לדבר עם שרת ה-<span dir="ltr">DHCP</span>! ברגע שזה קורה, המחשב יוכל לדבר רק עם מחשבים ששוכנים לידו באותה רשת פיזית, אך <b>לא</b> יוכל לעבור דרך הנתב - רשת ללא <span dir="ltr">Default Gateway</span>.
             </p>
           </div>
