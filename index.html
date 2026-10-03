@@ -106,7 +106,7 @@ span[dir="ltr"] {
   font-weight: 700;
 }
 
-/* ============ HEADER (קומפקטי, רציף ומסודר בלי רווחים מיותרים) ============ */
+/* ============ HEADER ============ */
 header.hero{
   padding: 10px 0 12px;
   border-bottom: 1px solid rgba(185, 28, 28, 0.22);
@@ -292,66 +292,34 @@ h1.title{
   box-shadow: var(--shadow);
 }
 
-.panel-head {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 14px;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
-  padding-bottom: 14px;
-  border-bottom: 1px dashed var(--panel-border);
-}
-
-.panel-head h2 {
-  color: var(--text);
-  font-family: 'Rubik', 'Assistant', sans-serif;
-  font-size: 24px;
-  font-weight: 800;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.panel-tag {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.6px;
-  color: var(--cyan);
-  background: var(--cyan-soft);
-  border: 1px solid var(--panel-border);
-  padding: 4px 11px;
-  border-radius: 7px;
-  white-space: nowrap;
-  direction: ltr;
-}
-
 /* ============ TABS ============ */
 .tabs-nav {
   display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
+  gap: 8px;
+  flex-wrap: nowrap;
   margin-bottom: 25px;
   border-bottom: 2px solid var(--panel-border);
   padding-bottom: 12px;
+  overflow-x: auto;
 }
 
 .tab-btn {
   font-family: 'Rubik', sans-serif;
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 800;
-  padding: 12px 20px;
+  padding: 10px 14px;
   border: 1px solid var(--panel-border);
-  border-radius: 12px;
+  border-radius: 10px;
   background: var(--bg);
   color: var(--text-muted);
   cursor: pointer;
   transition: all 0.2s ease;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
+  white-space: nowrap;
+  flex: 1 1 auto;
+  justify-content: center;
 }
 
 .tab-btn:hover {
@@ -801,6 +769,7 @@ footer {
 
 @media (max-width: 900px) {
   .component-grid { grid-template-columns: 1fr; }
+  .tabs-nav { flex-wrap: wrap; }
 }
 
 @media (max-width: 640px) {
@@ -844,7 +813,7 @@ footer {
         <span class="protocol-chip">SSH</span>
       </div>
       <nav class="navbar" style="margin: 0;">
-        <a class="nav-btn outline" href="#tabs-section">⚡ למעבדה</a>
+        <a class="nav-btn outline" href="#tabs-section">למעבדה</a>
         <a class="nav-btn solid" href="https://gemini.google.com/gem/13FFjtbW5S3yg0EE1qBEQiP8GEMwoepKu?usp=sharing" target="_blank" rel="noopener">אקדמיית סהר</a>
       </nav>
     </div>
@@ -854,18 +823,14 @@ footer {
 <div class="container" id="tabs-section">
 
   <div class="panel">
-    <div class="panel-head">
-      <h2> מעבדת שכבת האפליקציה - <span dir="ltr">Layer 7</span> - בחרו טאב ללמידה</h2>
-      <span class="panel-tag mono">APPLICATION_MODULE_V7.0</span>
-    </div>
 
-    <!-- סרגל הטאבים (ללא אייקונים) -->
+    <!-- סרגל הטאבים (בשורה אחת) -->
     <div class="tabs-nav">
-      <button class="tab-btn active" onclick="openTab(event, 'intro')">תפקיד השכבה והמידע</button>
+      <button class="tab-btn active" onclick="openTab(event, 'intro')">תפקיד השכבה</button>
       <button class="tab-btn" onclick="openTab(event, 'dns')">פרוטוקול <span dir="ltr">DNS</span> - ספר טלפונים</button>
       <button class="tab-btn" onclick="openTab(event, 'http')"><span dir="ltr">HTTP / HTTPS</span> - גלישה ברשת</button>
       <button class="tab-btn" onclick="openTab(event, 'dhcp')">פרוטוקול <span dir="ltr">DHCP</span> - <span dir="ltr">D.O.R.A</span> ו-<span dir="ltr">APIPA</span></button>
-      <button class="tab-btn" onclick="openTab(event, 'quiz')">מבדק ידע אינטראקטיבי</button>
+      <button class="tab-btn" onclick="openTab(event, 'quiz')">מבדק</button>
       <button class="tab-btn" onclick="openTab(event, 'reflection')">רפלקציה אישית</button>
     </div>
 
@@ -882,15 +847,14 @@ footer {
           </div>
         </div>
         <div class="comp-details">
-          <h3 class="comp-title">🌐 שכבת האפליקציה - <span dir="ltr">Application Layer</span> - חזית המשתמש</h3>
+          <h3 class="comp-title">שכבת האפליקציה - <span dir="ltr">Application Layer</span> - חזית המשתמש</h3>
           
           <div class="section-box">
-            <h4>⚡ אופן פעולה</h4>
             <p>שכבה 7 היא השכבה העליונה ביותר במודל <span dir="ltr">OSI/TCP-IP</span>. זוהי השכבה היחידה שאיתה המשתמש או התוכנות שלו - הדפדפן, תוכנת המייל, המשחק - באים במגע ישיר. תפקידה לספק שירותי רשת לאפליקציות, לקבל את המידע הגולמי - <span dir="ltr">Payload</span> - ולהעביר אותו כלפי מטה בצינור הפרוטוקולים לצורך אריזה ומשלוח.</p>
           </div>
 
           <div class="section-box large-font-section" style="border-color: var(--green);">
-            <h4 style="color: var(--green);">🛠️ תפקידים מרכזיים בשכבה 7</h4>
+            <h4 style="color: var(--green);">תפקידים מרכזיים בשכבה 7</h4>
             <div class="spec-grid large-font-grid">
               <div class="spec-card"><span>זיהוי שירותים</span><b>הגדרת סוג השירות: <span dir="ltr">Web, Mail, File</span></b></div>
               <div class="spec-card"><span>מודל תקשורת</span><b><span dir="ltr">Client-Server</span> או <span dir="ltr">Peer-to-Peer (P2P)</span></b></div>
@@ -900,7 +864,7 @@ footer {
           </div>
 
           <div class="section-box" style="border-color: var(--amber);">
-            <h4 style="color: var(--amber);">🔥 טיפ מטורלל של אחים</h4>
+            <h4 style="color: var(--amber);">טיפ מטורלל של אחים</h4>
             <p>שימו לב: הדפדפן שלכם - <span dir="ltr">Chrome</span> או <span dir="ltr">Edge</span> - הוא <b>לא</b> שכבה 7 בפני עצמו! הוא התוכנה, ואילו הפרוטוקול שרץ בתוכו - <span dir="ltr">HTTP/HTTPS</span> - הוא זה ששייך לשכבת האפליקציה!</p>
           </div>
         </div>
@@ -920,15 +884,14 @@ footer {
           </div>
         </div>
         <div class="comp-details">
-          <h3 class="comp-title">📖 פרוטוקול <span dir="ltr">DNS - Domain Name System</span></h3>
+          <h3 class="comp-title">פרוטוקול <span dir="ltr">DNS - Domain Name System</span></h3>
           
           <div class="section-box">
-            <h4>⚡ ספר הטלפונים של האינטרנט</h4>
             <p>בני אדם מעולים בלזכור שמות כמו <span class="mono">google.com</span>, אבל מחשבים ונתבים עובדים רק עם כתובות <span dir="ltr">IP</span> במספרים - כמו <span class="mono">142.250.185.78</span>. פרוטוקול <span dir="ltr">DNS</span> פותר את הבעיה: הוא מקבל את השם שרשמתם בדפדפן ומחזיר למחשב שלכם את כתובת ה-<span dir="ltr">IP</span> המדויקת של השרת!</p>
           </div>
 
           <div class="section-box large-font-section" style="border-color: var(--green);">
-            <h4 style="color: var(--green);">🛠️️ רשומות <span dir="ltr">DNS</span> נפוצות שחובה להכיר</h4>
+            <h4 style="color: var(--green);">רשומות <span dir="ltr">DNS</span> נפוצות שחובה להכיר</h4>
             <div class="spec-grid large-font-grid">
               <div class="spec-card"><span>רשומת A</span><b>תרגום שם לכתובת <span dir="ltr">IPv4</span></b></div>
               <div class="spec-card"><span>רשומת AAAA</span><b>תרגום שם לכתובת <span dir="ltr">IPv6</span></b></div>
@@ -938,7 +901,7 @@ footer {
           </div>
 
           <div class="section-box" style="border-color: var(--amber);">
-            <h4 style="color: var(--amber);">🔥 טיפ מטורלל של שותפים</h4>
+            <h4 style="color: var(--amber);">טיפ מטורלל של שותפים</h4>
             <p>שאילתות <span dir="ltr">DNS</span> רגילות מתבצעות מעל <b><span dir="ltr">UDP Port 53</span></b> בגלל המהירות. אבל אם תשובת ה-<span dir="ltr">DNS</span> גדולה מדי - או בעת העברת אזורים: <span dir="ltr">Zone Transfer</span> - הוא עובר אוטומטית ל-<b><span dir="ltr">TCP Port 53</span></b>!</p>
           </div>
         </div>
@@ -958,15 +921,14 @@ footer {
           </div>
         </div>
         <div class="comp-details">
-          <h3 class="comp-title">🔒 <span dir="ltr">HTTP / HTTPS</span> - הפרוטוקולים של ה-<span dir="ltr">Web</span></h3>
+          <h3 class="comp-title"><span dir="ltr">HTTP / HTTPS</span> - הפרוטוקולים של ה-<span dir="ltr">Web</span></h3>
           
           <div class="section-box">
-            <h4>⚡ איך אנחנו רואים אתרי אינטרנט?</h4>
             <p>פרוטוקול <b><span dir="ltr">HTTP</span></b> אחראי על העברת דפי אינטרנט, תמונות, וידאו ונתוני <span dir="ltr">JSON</span> משרת ה-<span dir="ltr">Web</span> אל הדפדפן שלכם. הוא עובד במודל של בקשה ותשובה - <span dir="ltr">Request-Response</span>. גרסתו המאובטחת, <b><span dir="ltr">HTTPS</span></b>, מוסיפה שכבת הצפנה חזקה - <span dir="ltr">TLS/SSL</span> - שמגנה על הסיסמאות והאשראי שלכם מפני צותתים ברשת!</p>
           </div>
 
           <div class="section-box large-font-section" style="border-color: var(--green);">
-            <h4 style="color: var(--green);">🛠️ קודי תגובה - <span dir="ltr">Status Codes</span> - שחובה להכיר</h4>
+            <h4 style="color: var(--green);">קודי תגובה - <span dir="ltr">Status Codes</span> - שחובה להכיר</h4>
             <div class="spec-grid large-font-grid">
               <div class="spec-card"><span>200 OK</span><b>הבקשה הצליחה! המידע הגיע</b></div>
               <div class="spec-card"><span>301 / 302</span><b>הפניה מחדש - <span dir="ltr">Redirect</span></b></div>
@@ -976,7 +938,7 @@ footer {
           </div>
 
           <div class="section-box" style="border-color: var(--amber);">
-            <h4 style="color: var(--amber);">🔥 טיפ מטורלל של מלכים</h4>
+            <h4 style="color: var(--amber);">טיפ מטורלל של מלכים</h4>
             <p>אם תפתחו את ה-<span dir="ltr">DevTools</span> בדפדפן - מקש <span dir="ltr">F12</span> - בלשונית <span dir="ltr">Network</span>, תראו בדיוק איך הדפדפן שלכם מריץ עשרות בקשות <span dir="ltr">GET</span> ו-<span dir="ltr">POST</span> בשכבה 7 בשנייה אחת!</p>
           </div>
         </div>
@@ -996,15 +958,14 @@ footer {
           </div>
         </div>
         <div class="comp-details">
-          <h3 class="comp-title">⚙️ פרוטוקול <span dir="ltr">DHCP</span> - חלוקת <span dir="ltr">IP</span> אוטומטית</h3>
+          <h3 class="comp-title">פרוטוקול <span dir="ltr">DHCP</span> - חלוקת <span dir="ltr">IP</span> אוטומטית</h3>
           
           <div class="section-box">
-            <h4>⚡ איך המחשב מקבל רשת בשנייה הראשונה?</h4>
             <p>כאשר מחשב או טלפון מתחבר ל-<span dir="ltr">Wi-Fi</span>, אין לו עדיין כתובת <span dir="ltr">IP</span>! פרוטוקול <b><span dir="ltr">DHCP</span></b> הוא השירות בשכבה 7 שמעניק לו כתובת <span dir="ltr">IP</span>, מסיכת רשת - <span dir="ltr">Subnet Mask</span>, שער מחדש - <span dir="ltr">Default Gateway</span> - וכתובות שרתי <span dir="ltr">DNS</span> באופן אוטומטי לחלוטין!</p>
           </div>
 
           <div class="section-box large-font-section" style="border-color: var(--green);">
-            <h4 style="color: var(--green);">🛠️ ארבעת שלבי תהליך <span dir="ltr">D.O.R.A</span></h4>
+            <h4 style="color: var(--green);">ארבעת שלבי תהליך <span dir="ltr">D.O.R.A</span></h4>
             <div class="spec-grid large-font-grid">
               <div class="spec-card"><span>1. Discover (D)</span><b>הלקוח צועק: מישהו פה שרת <span dir="ltr">DHCP</span>? - <span dir="ltr">Broadcast</span></b></div>
               <div class="spec-card"><span>2. Offer (O)</span><b>השרת עונה: יש לי כתובת <span dir="ltr">IP</span> להציע לך!</b></div>
@@ -1014,7 +975,7 @@ footer {
           </div>
 
           <div class="section-box large-font-section" style="border-color: var(--violet); background: var(--violet-soft);">
-            <h4 style="color: var(--violet);">⚠️ מה קורה כששרת ה-<span dir="ltr">DHCP</span> נכשל? - מנגנון <span dir="ltr">APIPA</span></h4>
+            <h4 style="color: var(--violet);">מה קורה כששרת ה-<span dir="ltr">DHCP</span> נכשל? - מנגנון <span dir="ltr">APIPA</span></h4>
             <p>כאשר מחשב שמוגדר לקבל כתובת אוטומטית שולח הודעת <span dir="ltr">Discover</span> אך <b>אינו מקבל מענה</b> משרת <span dir="ltr">DHCP</span> - בגלל שרת כבוי, נתק ברשת או בעיית כבל - מופעל מנגנון החירום <b><span dir="ltr">APIPA - Automatic Private IP Addressing</span></b>.</p>
             
             <div class="spec-grid large-font-grid" style="margin-top: 14px;">
@@ -1034,12 +995,12 @@ footer {
             </div>
 
             <p style="margin-top: 14px; font-size: 18px !important; color: var(--text);">
-              💡 <b>תסמין זיהוי בשטח:</b> ראיתם כתובת המתחילה ב-<span class="mono">169.254.x.x</span> במחשב? זהו הדגל האדום לכך שהמחשב אינו מצליח לדבר עם שרת ה-<span dir="ltr">DHCP</span>! ברגע שזה קורה, המחשב יוכל לדבר רק עם מחשבים ששוכנים לידו באותה רשת פיזית, אך <b>לא</b> יוכל לעבור דרך הנתב - רשת ללא <span dir="ltr">Default Gateway</span>.
+              <b>תסמין זיהוי בשטח:</b> ראיתם כתובת המתחילה ב-<span class="mono">169.254.x.x</span> במחשב? זהו הדגל האדום לכך שהמחשב אינו מצליח לדבר עם שרת ה-<span dir="ltr">DHCP</span>! ברגע שזה קורה, המחשב יוכל לדבר רק עם מחשבים ששוכנים לידו באותה רשת פיזית, אך <b>לא</b> יוכל לעבור דרך הנתב - רשת ללא <span dir="ltr">Default Gateway</span>.
             </p>
           </div>
 
           <div class="section-box" style="border-color: var(--amber);">
-            <h4 style="color: var(--amber);">🔥 טיפ מטורלל של אחים</h4>
+            <h4 style="color: var(--amber);">טיפ מטורלל של אחים</h4>
             <p>זוכרים את ראשי התיבות? <b><span dir="ltr">DORA</span></b>! בדיוק כמו דורה החוקרת! <span dir="ltr">Discover, Offer, Request, Acknowledge</span>!</p>
           </div>
         </div>
@@ -1048,7 +1009,6 @@ footer {
 
     <!-- TAB 5: מבדק ידע -->
     <div id="quiz" class="tab-content">
-      <h3 class="comp-title" style="margin-bottom: 20px;">📝 מבדק ידע אינטראקטיבי - שכבה 7 - 10 שאלות</h3>
       
       <div class="quiz-q">
         <p>1. איזה פרוטוקול אחראי על תרגום שמות מתחם - כמו <span class="mono">google.com</span> - לכתובות <span dir="ltr">IP</span>?</p>
@@ -1141,9 +1101,9 @@ footer {
       </div>
 
       <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 15px;">
-        <button class="nav-btn solid" onclick="checkQuiz()">בדוק תשובות וחשב ציון 🎯</button>
+        <button class="nav-btn solid" onclick="checkQuiz()">בדוק תשובות וחשב ציון</button>
         <!-- כפתור מורה מעוצב -->
-        <button class="nav-btn teacher" onclick="teacherAccess()">👨‍🏫 מורה - הצג תשובות נכונות</button>
+        <button class="nav-btn teacher" onclick="teacherAccess()">כניסת מורה</button>
       </div>
 
       <div id="quiz-score-box">
@@ -1156,15 +1116,15 @@ footer {
 
     <!-- TAB 6: רפלקציה -->
     <div id="reflection" class="tab-content">
-      <h3 class="comp-title" style="margin-bottom: 20px;">🧠 רפלקציה וסיכום אישי</h3>
+      <h3 class="comp-title" style="margin-bottom: 20px;">רפלקציה וסיכום אישי</h3>
       
       <div class="section-box" style="margin-bottom: 20px;">
-        <h4>💭 שאלת מחשבה לבדק בית:</h4>
+        <h4>שאלת מחשבה לבדק בית:</h4>
         <p>תארו מה קורה ברקע בשכבה 7 ברגע שאתם מקלידים <span class="mono">www.youtube.com</span> בדפדפן ולוחצים <span dir="ltr">Enter</span>! באילו פרוטוקולים המחשב משתמש לפי הסדר - רמז: קודם צריך לדעת מי זה השרת... ואז לפנות אליו?</p>
       </div>
 
       <div class="section-box" style="border-color: var(--violet); background: var(--violet-soft);">
-        <h4 style="color: var(--violet);">✍️ התובנות שלי מהשיעור:</h4>
+        <h4 style="color: var(--violet);">התובנות שלי מהשיעור:</h4>
         <textarea class="reflection-textarea" placeholder="כתבו כאן בקצרה: מה הלהיב או חידש לכם היום לגבי שכבת האפליקציה, DNS, DHCP, APIPA או HTTP?"></textarea>
       </div>
     </div>
@@ -1183,7 +1143,7 @@ footer {
     <div class="bot-body">
         <img class="bot-avatar" src="https://lh3.googleusercontent.com/d/1fzqv93VKIW_VT8-e1HdJxBmbU2sFnwlb" alt="דן GPT עוזר הפרויקט">
 
-        <p class="greet">שלום תלמידים 👋</p>
+        <p class="greet">שלום תלמידים</p>
         <p class="lead">אני דן GPT, עוזר השיעור והפרויקט שלכם בשכבה 7. אפשר להיעזר בי ב:</p>
 
         <div class="bot-chips">
@@ -1204,7 +1164,7 @@ footer {
 </div>
 
 <footer>
-  session: שכבה 7 - שכבת האפליקציה // אקדמיית האחוואנים // HTTP, HTTPS, DNS, DHCP & APIPA // בהצלחה 💪
+  session: שכבה 7 - שכבת האפליקציה // אקדמיית האחוואנים // HTTP, HTTPS, DNS, DHCP & APIPA // בהצלחה
 </footer>
 
 <script>
@@ -1267,10 +1227,10 @@ function checkQuiz() {
 
     if (selected && selected.value === answers[qKey].correct) {
       score += 10;
-      fb.textContent = `נכון מאוד! ✅ ${answers[qKey].text}`;
+      fb.textContent = `נכון מאוד! ${answers[qKey].text}`;
       fb.className = 'quiz-feedback correct';
     } else {
-      fb.textContent = `לא מדויק ❌ ${answers[qKey].text}`;
+      fb.textContent = `לא מדויק ${answers[qKey].text}`;
       fb.className = 'quiz-feedback incorrect';
     }
   }
@@ -1283,13 +1243,13 @@ function checkQuiz() {
   scoreElem.textContent = `${score} / 100`;
 
   if (score === 100) {
-    summaryElem.textContent = '🏆 אלוף/ה! שליטה מוחלטת בשכבת האפליקציה!';
+    summaryElem.textContent = 'אלוף/ה! שליטה מוחלטת בשכבת האפליקציה!';
     summaryElem.style.color = 'var(--green)';
   } else if (score >= 70) {
-    summaryElem.textContent = '💪 עבודה טובה מאוד! מומלץ לעבור שוב על השאלות שפספסת.';
+    summaryElem.textContent = 'עבודה טובה מאוד! מומלץ לעבור שוב על השאלות שפספסת.';
     summaryElem.style.color = 'var(--cyan)';
   } else {
-    summaryElem.textContent = '📚 מומלץ לחזור לטאבי הלמידה ולנסות שוב!';
+    summaryElem.textContent = 'מומלץ לחזור לטאבי הלמידה ולנסות שוב!';
     summaryElem.style.color = 'var(--amber)';
   }
 
@@ -1308,9 +1268,9 @@ function teacherAccess() {
       }
     }
     checkQuiz();
-    alert("תשובות מורה הוגדרו בהצלחה! ✅");
+    alert("תשובות מורה הוגדרו בהצלחה!");
   } else if (pass !== null) {
-    alert("סיסמה שגויה! ❌ Access Denied");
+    alert("סיסמה שגויה! Access Denied");
   }
 }
 </script>
