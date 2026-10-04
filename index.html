@@ -3,83 +3,78 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>אקדמיית השותפים - שיעור מטורלל: שכבה 7 - שכבת האפליקציה</title>
+<title>אקדמיית השותפים - שכבה 7 - שכבת האפליקציה</title>
 
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@700;800;900&family=Assistant:wght@400;600;700;800&family=JetBrains-Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@700;800;900&family=Assistant:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  /* Day Ops */
-  --bg: #eef2f7;
-  --grid-line: rgba(15, 23, 42, 0.05);
-  --card: #ffffff;
-  --panel-border: #dbe2ec;
-  --text: #0f172a;
-  --text-muted: #5b6b82;
-  --cyan: #0e7490;
-  --cyan-soft: #e0f6fb;
-  --green: #047857;
-  --green-soft: #e1f8ef;
-  --amber: #b45309;
-  --amber-soft: #fdf1dd;
-  --violet: #6d28d9;
-  --violet-soft: #f1e9fc;
-  --shadow: 0 20px 40px -14px rgba(15, 23, 42, 0.14);
+  --bg: #fbf8ee;
+  --paper: #ffffff;
+  --ink: #20150f;
+  --soft: #3b2b22;
+  --muted: #5a4a40;
+  --line: #e6d9bf;
+  --red: #b91c1c;
+  --red-text: #a11a1a;
+  --red-soft: #fcebe7;
+  --red-edge: #e9b8ae;
+  --term: #0b5d73;
+  --term-soft: #e1f3f8;
+  --cream: #F3EEE2;
+  --shadow: 0 10px 30px -12px rgba(120, 40, 20, 0.18);
   --radius: 18px;
+
+  --font-body: 'Assistant', system-ui, sans-serif;
+  --font-display: 'Rubik', system-ui, sans-serif;
+  --font-code: 'JetBrains Mono', monospace;
 }
 
 body.dark {
-  /* Night Ops */
   --bg: #090d16;
-  --grid-line: rgba(34, 211, 238, 0.06);
-  --card: #10182a;
-  --panel-border: rgba(34, 211, 238, 0.16);
-  --text: #e7edf6;
-  --text-muted: #8493ac;
-  --cyan: #22d3ee;
-  --cyan-soft: rgba(34, 211, 238, 0.12);
-  --green: #34d399;
-  --green-soft: rgba(52, 211, 153, 0.12);
-  --amber: #fbbf24;
-  --amber-soft: rgba(251, 191, 36, 0.12);
-  --violet: #a78bfa;
-  --violet-soft: rgba(167, 139, 250, 0.12);
+  --paper: #10182a;
+  --ink: #e7edf6;
+  --muted: #8493ac;
+  --line: rgba(34, 211, 238, 0.16);
+  --red: #f87171;
+  --red-text: #f87171;
+  --red-soft: rgba(248, 113, 113, 0.12);
+  --red-edge: rgba(248, 113, 113, 0.3);
+  --term: #22d3ee;
+  --term-soft: rgba(34, 211, 238, 0.12);
+  --cream: #141f36;
   --shadow: 0 20px 50px -14px rgba(0, 0, 0, 0.6);
 }
 
-* { box-sizing: border-box; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  margin: 0;
-  font-family: 'Assistant', 'Heebo', sans-serif;
   background-color: var(--bg);
-  background-image:
-    linear-gradient(var(--grid-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-  background-size: 42px 42px;
-  color: var(--text);
+  color: var(--ink);
+  font-family: var(--font-body);
   transition: background-color 0.3s ease, color 0.3s ease;
   padding-bottom: 60px;
+  font-size: 18px;
 }
 
 :focus-visible {
-  outline: 2px solid var(--cyan);
+  outline: 2px solid var(--red);
   outline-offset: 3px;
   border-radius: 4px;
 }
 
 .mono { 
-  font-family: 'JetBrains Mono', monospace; 
+  font-family: var(--font-code); 
   direction: ltr; 
   display: inline-block; 
   unicode-bidi: isolate;
-  border: 1px solid var(--cyan);
+  border: 1.5px solid var(--term);
   border-radius: 6px;
   padding: 2px 6px;
-  background: var(--cyan-soft);
-  color: var(--cyan);
+  background: var(--term-soft);
+  color: var(--term);
   font-weight: 700;
 }
 
@@ -87,41 +82,37 @@ body {
   direction: ltr;
   display: inline-block;
   unicode-bidi: isolate;
-  border: 1px solid var(--panel-border);
+  border: 1.5px solid var(--term);
   border-radius: 6px;
   padding: 2px 6px;
-  background: var(--card);
+  background: var(--term-soft);
+  color: var(--term);
   margin: 0 2px;
+  font-family: var(--font-code);
+  font-weight: 700;
 }
 
 span[dir="ltr"] {
   display: inline-block;
-  border: 1px solid var(--cyan);
+  border: 1.5px solid var(--term);
   border-radius: 6px;
   padding: 1px 6px;
-  background: var(--cyan-soft);
-  font-family: 'JetBrains Mono', monospace;
+  background: var(--term-soft);
+  font-family: var(--font-code);
   font-size: 0.95em;
-  color: var(--cyan);
+  color: var(--term);
   font-weight: 700;
 }
 
 /* ============ HEADER ============ */
 header.hero{
-  padding: 10px 0 12px;
-  border-bottom: 1px solid rgba(185, 28, 28, 0.22);
-  position: relative;
-  background: linear-gradient(160deg, #fbf3e2 0%, #f7ecd6 55%, #f9efdb 100%);
-}
-
-header.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    radial-gradient(circle at 12% 20%, rgba(185, 28, 28, 0.08), transparent 40%),
-    radial-gradient(circle at 88% 75%, rgba(217, 119, 6, 0.10), transparent 45%);
-  pointer-events: none;
+  padding: 16px 0;
+  border-bottom: 2px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--paper);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
 }
 
 .header-inner {
@@ -139,16 +130,15 @@ header.hero::before {
 .header-main-group {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
   flex-wrap: wrap;
 }
 
 .hero-avatar-spin{
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  border: 2px solid #b91c1c;
-  box-shadow: 0 0 12px rgba(185, 28, 28, 0.4), 0 0 0 3px #FFFFFF;
+  border: 3px solid var(--red);
   object-fit: cover;
   flex-shrink: 0;
   background: #ffffff;
@@ -167,16 +157,15 @@ header.hero::before {
 }
 
 .eyebrow{
-  display:inline-block;
-  font-family:'JetBrains Mono',monospace;
-  font-size:10.5px;
+  display: inline-block;
+  font-family: var(--font-code);
+  font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing:1px;
-  color:#b91c1c;
-  background:rgba(185, 28, 28, 0.1);
-  border:1px solid rgba(185, 28, 28, 0.3);
-  padding:2px 8px;
-  border-radius:12px;
+  color: var(--red-text);
+  background: var(--red-soft);
+  border: 1.5px solid var(--red-edge);
+  padding: 2px 8px;
+  border-radius: 12px;
   direction: ltr;
   width: fit-content;
   unicode-bidi: isolate;
@@ -190,20 +179,20 @@ header.hero::before {
 }
 
 h1.title{
-  font-size: 20px;
+  font-size: 1.35rem;
   margin: 0;
-  color: #b91c1c;
-  line-height: 1.1;
-  font-family: 'Rubik', 'Assistant', sans-serif;
-  font-weight: 900;
+  color: var(--red-text);
+  line-height: 1.3;
+  font-family: var(--font-display);
+  font-weight: 800;
 }
 
 .subtitle{
-  font-size: 12px;
+  font-size: 0.85rem;
   max-width: 750px;
   margin: 0;
-  color: #c2410c;
-  font-weight: 700;
+  color: var(--muted);
+  font-weight: 500;
 }
 
 .header-actions-group {
@@ -215,20 +204,19 @@ h1.title{
 
 .protocol-row {
   display: flex;
-  gap: 4px;
+  gap: 6px;
   flex-wrap: wrap;
 }
 
 .protocol-chip {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 9.5px;
-  font-weight: 600;
-  color: #b91c1c;
-  background: rgba(255, 255, 255, 0.55);
-  border: 1px solid rgba(185, 28, 28, 0.3);
-  padding: 2px 6px;
-  border-radius: 5px;
-  letter-spacing: 0.3px;
+  font-family: var(--font-code);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--red-text);
+  background: var(--red-soft);
+  border: 1.5px solid var(--red-edge);
+  padding: 2px 8px;
+  border-radius: 6px;
   direction: ltr;
   unicode-bidi: isolate;
 }
@@ -240,38 +228,38 @@ h1.title{
 }
 
 .nav-btn {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10.5px;
+  font-family: var(--font-code);
+  font-size: 0.8rem;
   font-weight: 700;
-  padding: 5px 10px;
-  border-radius: 6px;
+  padding: 8px 14px;
+  border-radius: 12px;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   gap: 5px;
   cursor: pointer;
-  border: none;
-  transition: transform 0.18s ease, opacity 0.18s ease;
-  letter-spacing: 0.2px;
+  border: 2px solid var(--line);
+  transition: border-color 0.2s, transform 0.18s ease;
 }
 
-.nav-btn:hover { transform: translateY(-1px); }
+.nav-btn:hover { border-color: var(--red); transform: translateY(-1px); }
 
 .nav-btn.outline {
-  background: rgba(255, 255, 255, 0.55);
-  border: 1px solid rgba(185, 28, 28, 0.4);
-  color: #b91c1c;
+  background: var(--paper);
+  color: var(--ink);
 }
 
 .nav-btn.solid {
-  background: linear-gradient(120deg, #dc2626, #b91c1c);
-  color: #fff5f0;
+  background: var(--red);
+  color: #fff;
+  border-color: transparent;
   box-shadow: 0 4px 12px -3px rgba(185, 28, 28, 0.5);
 }
 
 .nav-btn.teacher {
-  background: linear-gradient(120deg, #6d28d9, #4c1d95);
+  background: #6d28d9;
   color: #ffffff;
+  border-color: transparent;
   box-shadow: 0 4px 12px -3px rgba(109, 40, 217, 0.5);
 }
 
@@ -284,11 +272,11 @@ h1.title{
 
 .panel {
   position: relative;
-  background: var(--card);
-  padding: 30px 30px 28px;
+  background: var(--paper);
+  padding: 30px;
   margin-bottom: 30px;
   border-radius: var(--radius);
-  border: 1px solid var(--panel-border);
+  border: 2px solid var(--line);
   box-shadow: var(--shadow);
 }
 
@@ -298,20 +286,20 @@ h1.title{
   gap: 8px;
   flex-wrap: nowrap;
   margin-bottom: 25px;
-  border-bottom: 2px solid var(--panel-border);
+  border-bottom: 2px solid var(--line);
   padding-bottom: 12px;
   overflow-x: auto;
 }
 
 .tab-btn {
-  font-family: 'Rubik', sans-serif;
-  font-size: 15px;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
   font-weight: 800;
-  padding: 10px 14px;
-  border: 1px solid var(--panel-border);
-  border-radius: 10px;
+  padding: 10px 16px;
+  border: 2px solid var(--line);
+  border-radius: 12px;
   background: var(--bg);
-  color: var(--text-muted);
+  color: var(--muted);
   cursor: pointer;
   transition: all 0.2s ease;
   display: flex;
@@ -323,13 +311,13 @@ h1.title{
 }
 
 .tab-btn:hover {
-  background: var(--cyan-soft);
-  color: var(--cyan);
-  border-color: var(--cyan);
+  background: var(--paper);
+  color: var(--red-text);
+  border-color: var(--red);
 }
 
 .tab-btn.active {
-  background: linear-gradient(120deg, #dc2626, #b91c1c);
+  background: var(--red);
   color: #ffffff;
   border-color: transparent;
   box-shadow: 0 6px 16px rgba(185, 28, 28, 0.35);
@@ -366,14 +354,14 @@ h1.title{
   height: 220px;
   object-fit: cover;
   border-radius: 14px;
-  border: 2px solid var(--panel-border);
+  border: 2px solid var(--line);
   box-shadow: var(--shadow);
 }
 
 .meta-box {
   background: var(--bg);
-  border: 1px solid var(--panel-border);
-  border-radius: 12px;
+  border: 2px solid var(--line);
+  border-radius: 14px;
   padding: 16px;
 }
 
@@ -382,14 +370,14 @@ h1.title{
   justify-content: space-between;
   align-items: center;
   padding: 10px 0;
-  border-bottom: 1px dashed var(--panel-border);
-  font-size: 16px;
+  border-bottom: 1.5px dashed var(--line);
+  font-size: 1rem;
 }
 
 .meta-item:last-child { border-bottom: none; }
 
-.meta-label { font-weight: 700; color: var(--text-muted); }
-.meta-val { font-family: 'JetBrains Mono', monospace; font-weight: 800; color: var(--cyan); direction: ltr; }
+.meta-label { font-weight: 700; color: var(--muted); }
+.meta-val { font-family: var(--font-code); font-weight: 800; color: var(--term); direction: ltr; }
 
 .comp-details {
   display: flex;
@@ -398,28 +386,29 @@ h1.title{
 }
 
 .comp-title {
-  font-family: 'Rubik', sans-serif;
-  font-size: 28px;
-  font-weight: 900;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
   margin: 0;
-  color: var(--text);
+  color: var(--ink);
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
 .section-box {
-  background: var(--bg);
-  border-right: 4px solid var(--cyan);
-  border-radius: 8px;
+  background: var(--cream);
+  border: 2px solid var(--line);
+  border-right: 6px solid var(--red);
+  border-radius: 14px;
   padding: 18px;
 }
 
 .section-box h4 {
   margin: 0 0 10px 0;
-  font-family: 'Rubik', sans-serif;
-  font-size: 20px;
-  color: var(--cyan);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--red-text);
   display: flex;
   align-items: center;
   gap: 6px;
@@ -427,10 +416,10 @@ h1.title{
 
 .section-box p {
   margin: 0;
-  font-size: 18px;
+  font-size: 1rem;
   line-height: 1.8;
-  font-weight: 600;
-  color: var(--text);
+  font-weight: 500;
+  color: var(--muted);
 }
 
 .spec-grid {
@@ -440,45 +429,46 @@ h1.title{
 }
 
 .spec-card {
-  background: var(--card);
-  border: 1px solid var(--panel-border);
-  border-radius: 10px;
+  background: var(--paper);
+  border: 2px solid var(--line);
+  border-radius: 12px;
   padding: 14px;
 }
 
 .spec-card span {
   display: block;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 13px;
-  color: var(--text-muted);
+  font-family: var(--font-code);
+  font-size: 0.8rem;
+  color: var(--muted);
   margin-bottom: 6px;
   direction: ltr;
   text-align: right;
+  font-weight: 700;
 }
 
 .spec-card b {
-  font-size: 16px;
+  font-size: 0.95rem;
   font-weight: 800;
-  color: var(--text);
+  color: var(--ink);
   line-height: 1.5;
 }
 
 /* ============ הגדלות פונטים ייעודיות ============ */
 .large-font-section h4 {
-  font-size: 21px !important;
+  font-size: 1.15rem !important;
 }
 
 .large-font-section p {
-  font-size: 18px !important;
+  font-size: 1rem !important;
   line-height: 1.8 !important;
 }
 
 .large-font-grid .spec-card span {
-  font-size: 13.5px !important;
+  font-size: 0.8rem !important;
 }
 
 .large-font-grid .spec-card b {
-  font-size: 17px !important;
+  font-size: 0.95rem !important;
   line-height: 1.5 !important;
 }
 
@@ -487,15 +477,16 @@ h1.title{
   margin-bottom: 22px;
   padding: 18px;
   background: var(--bg);
-  border-radius: 12px;
-  border: 1px solid var(--panel-border);
+  border-radius: 14px;
+  border: 2px solid var(--line);
 }
 
 .quiz-q p {
   font-weight: 800;
   margin-top: 0;
   margin-bottom: 14px;
-  font-size: 18px;
+  font-size: 1.05rem;
+  color: var(--ink);
 }
 
 .quiz-opt {
@@ -503,31 +494,33 @@ h1.title{
   margin: 10px 0;
   cursor: pointer;
   font-weight: 600;
-  font-size: 17px;
+  font-size: 0.95rem;
+  color: var(--muted);
 }
 
 .quiz-opt input {
   margin-left: 8px;
+  transform: scale(1.2);
 }
 
 .quiz-feedback {
   margin-top: 10px;
   font-weight: 800;
-  font-size: 16px;
+  font-size: 0.9rem;
   display: none;
   padding: 10px 14px;
-  border-radius: 6px;
+  border-radius: 8px;
 }
 
 .quiz-feedback.correct { 
-  color: var(--green); 
-  background: var(--green-soft);
+  color: #0b6b4a; 
+  background: #d8f3e6;
   display: block; 
 }
 
 .quiz-feedback.incorrect { 
-  color: #dc2626; 
-  background: rgba(220, 38, 38, 0.1);
+  color: var(--red); 
+  background: #fcdcd6;
   display: block; 
 }
 
@@ -535,36 +528,36 @@ h1.title{
   display: none;
   margin-top: 25px;
   padding: 20px;
-  background: var(--card);
-  border: 2px solid var(--cyan);
+  background: var(--cream);
+  border: 2px solid var(--red);
   border-radius: 14px;
   text-align: center;
 }
 
 #quiz-score-box h4 {
   margin: 0 0 10px 0;
-  font-size: 24px;
-  font-family: 'Rubik', sans-serif;
-  color: var(--cyan);
+  font-size: 1.25rem;
+  font-family: var(--font-display);
+  color: var(--red-text);
 }
 
 .score-number {
-  font-size: 40px;
+  font-size: 2rem;
   font-weight: 900;
-  font-family: 'JetBrains Mono', monospace;
-  color: var(--text);
+  font-family: var(--font-code);
+  color: var(--red);
 }
 
 .reflection-textarea {
   width: 100%;
   min-height: 120px;
-  border-radius: 10px;
-  border: 1px solid var(--panel-border);
-  background: var(--bg);
-  color: var(--text);
+  border-radius: 12px;
+  border: 2px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
   padding: 14px;
   font-family: inherit;
-  font-size: 17px;
+  font-size: 1rem;
   resize: vertical;
 }
 
@@ -575,14 +568,13 @@ h1.title{
   left: 22px;
   width: 46px;
   height: 46px;
-  border: 1px solid rgba(185, 28, 28, 0.35);
+  border: 2px solid var(--line);
   border-radius: 50%;
   cursor: pointer;
-  font-size: 19px;
+  font-size: 1.1rem;
   z-index: 9999;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(10px);
-  color: #b91c1c;
+  background: var(--paper);
+  color: var(--red);
   box-shadow: 0 4px 15px rgba(0,0,0,0.18);
   display: flex;
   align-items: center;
@@ -594,162 +586,164 @@ h1.title{
 
 /* ============ עוזר הפרויקט הצף ============ */
 .bot-widget {
-    position: fixed;
-    bottom: 13px;
-    left: 13px;
-    width: 178px;
-    max-width: calc(100vw - 26px);
-    background: var(--card);
-    color: var(--text);
-    border-radius: 11px;
-    overflow: hidden;
-    box-shadow: 0 11px 24px rgba(0,0,0,0.28);
-    z-index: 9999;
-    animation: floatBot 4s ease-in-out infinite;
-    border: 1px solid var(--panel-border);
-    transition: width 0.25s ease, height 0.25s ease, opacity 0.2s ease;
+  position: fixed;
+  bottom: 13px;
+  left: 13px;
+  width: 210px;
+  max-width: calc(100vw - 26px);
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  z-index: 9999;
+  animation: floatBot 4s ease-in-out infinite;
+  border: 2px solid var(--line);
+  transition: width 0.25s ease, height 0.25s ease, opacity 0.2s ease;
 }
 
 .bot-widget.collapsed {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    animation: none;
-    cursor: pointer;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  animation: none;
+  cursor: pointer;
 }
 
 .bot-widget.collapsed .bot-header, 
 .bot-widget.collapsed .bot-body > *:not(.bot-avatar) {
-    display: none;
+  display: none;
 }
 
 .bot-widget.collapsed .bot-body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  height: 100%;
 }
 
 .bot-widget.collapsed .bot-avatar {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    border: 2px solid var(--cyan);
-    box-shadow: 0 4px 11px rgba(0,0,0,0.3);
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border: 2px solid var(--red);
+  box-shadow: 0 4px 11px rgba(0,0,0,0.3);
 }
 
 .bot-close {
-    margin-right: auto;
-    background: none;
-    border: none;
-    color: #eaf6fb;
-    cursor: pointer;
-    font-size: 10px;
-    line-height: 1;
-    padding: 1px 2px;
+  margin-right: auto;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.8rem;
+  line-height: 1;
+  padding: 1px 4px;
 }
 
 .bot-header {
-    background: linear-gradient(135deg, #0b2540, #062a2e);
-    color: #eaf6fb;
-    padding: 8px 10px;
-    font-weight: 800;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 8px;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    letter-spacing: 0.2px;
-    cursor: pointer;
-    direction: ltr;
+  background: var(--red);
+  color: #fff;
+  padding: 8px 10px;
+  font-weight: 800;
+  font-family: var(--font-code);
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  direction: ltr;
 }
 
 .bot-header .dot {
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background: #34d399;
-    box-shadow: 0 0 0 2px rgba(52,211,153,0.25);
-    animation: pulse 1.8s ease-in-out infinite;
-    flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #34d399;
+  box-shadow: 0 0 0 2px rgba(52,211,153,0.25);
+  animation: pulse 1.8s ease-in-out infinite;
+  flex-shrink: 0;
 }
 
-.bot-body { padding: 11px; }
+.bot-body { padding: 12px; }
 
 .bot-avatar {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: block;
-    margin: 0 auto 7px auto;
-    object-fit: cover;
-    border: 2px solid var(--cyan);
-    box-shadow: 0 0 0 3px var(--cyan-soft);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 7px auto;
+  object-fit: cover;
+  border: 2px solid var(--red);
+  box-shadow: 0 0 0 3px var(--red-soft);
 }
 
 .bot-body p.greet {
-    margin: 0 0 6px 0;
-    font-weight: 800;
-    text-align: center;
-    font-size: 9px;
+  margin: 0 0 6px 0;
+  font-weight: 800;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--ink);
 }
 
 .bot-body .lead {
-    font-weight: 600;
-    font-size: 8px;
-    text-align: center;
-    color: var(--text-muted);
-    margin: 0 0 7px;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-align: center;
+  color: var(--muted);
+  margin: 0 0 7px;
 }
 
 .bot-chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px;
-    justify-content: center;
-    margin-bottom: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  justify-content: center;
+  margin-bottom: 8px;
 }
 
 .bot-chip {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 6.5px;
-    font-weight: 600;
-    color: var(--text-muted);
-    background: var(--bg);
-    border: 1px solid var(--panel-border);
-    padding: 2px 5px;
-    border-radius: 4px;
-    direction: ltr;
+  font-family: var(--font-code);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--red-text);
+  background: var(--red-soft);
+  border: 1px solid var(--red-edge);
+  padding: 2px 5px;
+  border-radius: 4px;
+  direction: ltr;
 }
 
 .bot-btn {
-    display: block;
-    text-align: center;
-    padding: 7px;
-    background: var(--green);
-    color: #06231a;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: 800;
-    font-size: 8.5px;
-    font-family: 'JetBrains Mono', monospace;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-    direction: ltr;
+  display: block;
+  text-align: center;
+  padding: 7px;
+  background: var(--red);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 800;
+  font-size: 0.8rem;
+  font-family: var(--font-code);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  direction: ltr;
+  box-shadow: 0 4px 10px rgba(185,28,28,0.2);
 }
 
 .bot-btn:hover {
-    opacity: 0.88;
-    transform: scale(1.02);
+  opacity: 0.88;
+  transform: scale(1.02);
 }
 
 footer {
-  background: var(--card);
-  border-top: 1px solid var(--panel-border);
-  color: var(--text-muted);
+  background: var(--paper);
+  border-top: 2px solid var(--line);
+  color: var(--muted);
   font-weight: 700;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 13.5px;
+  font-family: var(--font-code);
+  font-size: 0.85rem;
   text-align: center;
   padding: 26px;
   margin-top: 50px;
@@ -773,10 +767,10 @@ footer {
 }
 
 @media (max-width: 640px) {
-  .darkBtn { top: 12px; left: 12px; width: 40px; height: 40px; font-size: 16px; }
+  .darkBtn { top: 12px; left: 12px; width: 40px; height: 40px; font-size: 1rem; }
   .panel { padding: 18px 12px; }
   .tab-btn { width: 100%; justify-content: center; }
-  .bot-avatar { width: 68px; height: 68px; }
+  .bot-avatar { width: 50px; height: 50px; }
   .bot-widget:not(.collapsed) {
     width: calc(100vw - 44px);
     max-height: 70vh;
@@ -792,19 +786,17 @@ footer {
 
 <header class="hero">
   <div class="header-inner">
-    <!-- קבוצה ימנית: אוואטר, תג, כותרת וסאבטייטל -->
     <div class="header-main-group">
       <img src="https://lh3.googleusercontent.com/d/1oIkZlLHZWtFgoDblyxziTALQZwsyxAOo" alt="אווטר" class="hero-avatar-spin">
       <div class="header-text-content">
         <div class="eyebrow" dir="ltr">session: application_layer_mastery // layer7.osi.local</div>
         <div class="title-row">
-          <h1 class="title">שיעור מטורלל: שכבה 7 - שכבת האפליקציה</h1>
+          <h1 class="title">שכבה 7 - שכבת האפליקציה</h1>
         </div>
         <p class="subtitle">איך המשתמש פוגש את כל הקסם של הרשת? מסע עומק בטאבים: HTTP/S, DNS, DHCP ופרוטוקולים!</p>
       </div>
     </div>
 
-    <!-- קבוצה שמאלית: פרוטוקולים וכפתורי ניווט בשורה אחת צפופה -->
     <div class="header-actions-group">
       <div class="protocol-row">
         <span class="protocol-chip">HTTP/S</span>
@@ -824,7 +816,6 @@ footer {
 
   <div class="panel">
 
-    <!-- סרגל הטאבים (בשורה אחת) -->
     <div class="tabs-nav">
       <button class="tab-btn active" onclick="openTab(event, 'intro')">תפקיד השכבה</button>
       <button class="tab-btn" onclick="openTab(event, 'dns')">פרוטוקול <span dir="ltr">DNS</span> - ספר טלפונים</button>
@@ -834,13 +825,13 @@ footer {
       <button class="tab-btn" onclick="openTab(event, 'reflection')">רפלקציה אישית</button>
     </div>
 
-    <!-- TAB 1: תפקיד השכבה -->
+    <!-- TAB 1 -->
     <div id="intro" class="tab-content active">
       <div class="component-grid">
         <div class="comp-media">
           <img class="comp-img" src="https://lh3.googleusercontent.com/d/1oApyO9t3Hor5tte7SAca_6O-O0onkoEP" alt="שכבת האפליקציה" style="width: 100%; height: auto; max-height: 310px; object-fit: cover; object-position: top;">
           <div class="meta-box">
-            <div class="meta-item"><span class="meta-label">שכבת <span dir="ltr">OSI</span>:</span><span class="meta-val">Layer 7 (Application)</span></div>
+            <div class="meta-item"><span class="meta-label">שכבת <span dir="ltr">OSI</span>:</span><span class="meta-val">Layer 7 Application</span></div>
             <div class="meta-item"><span class="meta-label">יחידת <span dir="ltr">PDU</span>:</span><span class="meta-val">Data / Payload</span></div>
             <div class="meta-item"><span class="meta-label">ממשק משתמש:</span><span class="meta-val">User Interface & Apps</span></div>
             <div class="meta-item"><span class="meta-label">ארכיטקטורות:</span><span class="meta-val">Client-Server / P2P</span></div>
@@ -850,11 +841,11 @@ footer {
           <h3 class="comp-title">שכבת האפליקציה - <span dir="ltr">Application Layer</span> - חזית המשתמש</h3>
           
           <div class="section-box">
-            <p>שכבה 7 היא השכבה העליונה ביותר במודל <span dir="ltr">OSI/TCP-IP</span>. זוהי השכבה היחידה שאיתה המשתמש או התוכנות שלו - הדפדפן, תוכנת המייל, המשחק - באים במגע ישיר. תפקידה לספק שירותי רשת לאפליקציות, לקבל את המידע הגולמי - <span dir="ltr">Payload</span> - ולהעביר אותו כלפי מטה בצינור הפרוטוקולים לצורך אריזה ומשלוח.</p>
+            <p>שכבה 7 هي השכבה העליונה ביותר במודל <span dir="ltr">OSI/TCP-IP</span>. זוהי השכבה היחידה שאיתה המשתמש או התוכנות שלו - הדפדפן, תוכנת המייל, המשחק - באים במגע ישיר. תפקידה לספק שירותי רשת לאפליקציות, לקבל את המידע הגולמי - <span dir="ltr">Payload</span> - ולהעביר אותו כלפי מטה בצינור הפרוטוקולים לצורך אריזה ומשלוח.</p>
           </div>
 
-          <div class="section-box large-font-section" style="border-color: var(--green);">
-            <h4 style="color: var(--green);">תפקידים מרכזיים בשכבה 7</h4>
+          <div class="section-box large-font-section">
+            <h4>תפקידים מרכזיים בשכבה 7</h4>
             <div class="spec-grid large-font-grid">
               <div class="spec-card"><span>זיהוי שירותים</span><b>הגדרת סוג השירות: <span dir="ltr">Web, Mail, File</span></b></div>
               <div class="spec-card"><span>מודל תקשורת</span><b><span dir="ltr">Client-Server</span> או <span dir="ltr">Peer-to-Peer (P2P)</span></b></div>
@@ -863,15 +854,15 @@ footer {
             </div>
           </div>
 
-          <div class="section-box" style="border-color: var(--amber);">
-            <h4 style="color: var(--amber);">טיפ מטורלל של אחים</h4>
-            <p>שימו לב: הדפדפן שלכם - <span dir="ltr">Chrome</span> או <span dir="ltr">Edge</span> - הוא <b>לא</b> שכבה 7 בפני עצמו! הוא התוכנה, ואילו הפרוטוקול שרץ בתוכו - <span dir="ltr">HTTP/HTTPS</span> - הוא זה ששייך לשכבת האפליקציה!</p>
+          <div class="section-box">
+            <h4>טיפ של אחים</h4>
+            <p>שימו לב: הדפדפן שלכם - <span dir="ltr">Chrome</span> או <span dir="ltr">Edge</span> - הוא לא שכבה 7 בפני עצמו! הוא התוכנה, ואילו הפרוטוקול שרץ בתוכו - <span dir="ltr">HTTP/HTTPS</span> - הוא זה ששייך לשכבת האפליקציה!</p>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- TAB 2: DNS -->
+    <!-- TAB 2 -->
     <div id="dns" class="tab-content">
       <div class="component-grid">
         <div class="comp-media">
@@ -890,8 +881,8 @@ footer {
             <p>בני אדם מעולים בלזכור שמות כמו <span class="mono">google.com</span>, אבל מחשבים ונתבים עובדים רק עם כתובות <span dir="ltr">IP</span> במספרים - כמו <span class="mono">142.250.185.78</span>. פרוטוקול <span dir="ltr">DNS</span> פותר את הבעיה: הוא מקבל את השם שרשמתם בדפדפן ומחזיר למחשב שלכם את כתובת ה-<span dir="ltr">IP</span> המדויקת של השרת!</p>
           </div>
 
-          <div class="section-box large-font-section" style="border-color: var(--green);">
-            <h4 style="color: var(--green);">רשומות <span dir="ltr">DNS</span> נפוצות שחובה להכיר</h4>
+          <div class="section-box large-font-section">
+            <h4>רשומות <span dir="ltr">DNS</span> נפוצות שחובה להכיר</h4>
             <div class="spec-grid large-font-grid">
               <div class="spec-card"><span>רשומת A</span><b>תרגום שם לכתובת <span dir="ltr">IPv4</span></b></div>
               <div class="spec-card"><span>רשומת AAAA</span><b>תרגום שם לכתובת <span dir="ltr">IPv6</span></b></div>
@@ -900,15 +891,15 @@ footer {
             </div>
           </div>
 
-          <div class="section-box" style="border-color: var(--amber);">
-            <h4 style="color: var(--amber);">טיפ מטורלל של שותפים</h4>
+          <div class="section-box">
+            <h4>טיפ של שותפים</h4>
             <p>שאילתות <span dir="ltr">DNS</span> רגילות מתבצעות מעל <b><span dir="ltr">UDP Port 53</span></b> בגלל המהירות. אבל אם תשובת ה-<span dir="ltr">DNS</span> גדולה מדי - או בעת העברת אזורים: <span dir="ltr">Zone Transfer</span> - הוא עובר אוטומטית ל-<b><span dir="ltr">TCP Port 53</span></b>!</p>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- TAB 3: HTTP / HTTPS -->
+    <!-- TAB 3 -->
     <div id="http" class="tab-content">
       <div class="component-grid">
         <div class="comp-media">
@@ -927,8 +918,8 @@ footer {
             <p>פרוטוקול <b><span dir="ltr">HTTP</span></b> אחראי על העברת דפי אינטרנט, תמונות, וידאו ונתוני <span dir="ltr">JSON</span> משרת ה-<span dir="ltr">Web</span> אל הדפדפן שלכם. הוא עובד במודל של בקשה ותשובה - <span dir="ltr">Request-Response</span>. גרסתו המאובטחת, <b><span dir="ltr">HTTPS</span></b>, מוסיפה שכבת הצפנה חזקה - <span dir="ltr">TLS/SSL</span> - שמגנה על הסיסמאות והאשראי שלכם מפני צותתים ברשת!</p>
           </div>
 
-          <div class="section-box large-font-section" style="border-color: var(--green);">
-            <h4 style="color: var(--green);">קודי תגובה - <span dir="ltr">Status Codes</span> - שחובה להכיר</h4>
+          <div class="section-box large-font-section">
+            <h4>קודי תגובה - <span dir="ltr">Status Codes</span> - שחובה להכיר</h4>
             <div class="spec-grid large-font-grid">
               <div class="spec-card"><span>200 OK</span><b>הבקשה הצליחה! המידע הגיע</b></div>
               <div class="spec-card"><span>301 / 302</span><b>הפניה מחדש - <span dir="ltr">Redirect</span></b></div>
@@ -937,15 +928,15 @@ footer {
             </div>
           </div>
 
-          <div class="section-box" style="border-color: var(--amber);">
-            <h4 style="color: var(--amber);">טיפ מטורלל של מלכים</h4>
+          <div class="section-box">
+            <h4>טיפ של מלכים</h4>
             <p>אם תפתחו את ה-<span dir="ltr">DevTools</span> בדפדפן - מקש <span dir="ltr">F12</span> - בלשונית <span dir="ltr">Network</span>, תראו בדיוק איך הדפדפן שלכם מריץ עשרות בקשות <span dir="ltr">GET</span> ו-<span dir="ltr">POST</span> בשכבה 7 בשנייה אחת!</p>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- TAB 4: DHCP & APIPA -->
+    <!-- TAB 4 -->
     <div id="dhcp" class="tab-content">
       <div class="component-grid">
         <div class="comp-media">
@@ -964,8 +955,8 @@ footer {
             <p>כאשר מחשב או טלפון מתחבר ל-<span dir="ltr">Wi-Fi</span>, אין לו עדיין כתובת <span dir="ltr">IP</span>! פרוטוקול <b><span dir="ltr">DHCP</span></b> הוא השירות בשכבה 7 שמעניק לו כתובת <span dir="ltr">IP</span>, מסיכת רשת - <span dir="ltr">Subnet Mask</span>, שער מחדש - <span dir="ltr">Default Gateway</span> - וכתובות שרתי <span dir="ltr">DNS</span> באופן אוטומטי לחלוטין!</p>
           </div>
 
-          <div class="section-box large-font-section" style="border-color: var(--green);">
-            <h4 style="color: var(--green);">ארבעת שלבי תהליך <span dir="ltr">D.O.R.A</span></h4>
+          <div class="section-box large-font-section">
+            <h4>ארבעת שלבי תהליך <span dir="ltr">D.O.R.A</span></h4>
             <div class="spec-grid large-font-grid">
               <div class="spec-card"><span>1. Discover (D)</span><b>הלקוח צועק: מישהו פה שרת <span dir="ltr">DHCP</span>? - <span dir="ltr">Broadcast</span></b></div>
               <div class="spec-card"><span>2. Offer (O)</span><b>השרת עונה: יש לי כתובת <span dir="ltr">IP</span> להציע לך!</b></div>
@@ -974,8 +965,8 @@ footer {
             </div>
           </div>
 
-          <div class="section-box large-font-section" style="border-color: var(--violet); background: var(--violet-soft);">
-            <h4 style="color: var(--violet);">מה קורה כששרת ה-<span dir="ltr">DHCP</span> נכשל? - מנגנון <span dir="ltr">APIPA</span></h4>
+          <div class="section-box large-font-section" style="border-color: var(--term);">
+            <h4 style="color: var(--term);">מה קורה כששרת ה-<span dir="ltr">DHCP</span> נכשל? - מנגנון <span dir="ltr">APIPA</span></h4>
             <p>כאשר מחשב שמוגדר לקבל כתובת אוטומטית שולח הודעת <span dir="ltr">Discover</span> אך <b>אינו מקבל מענה</b> משרת <span dir="ltr">DHCP</span> - בגלל שרת כבוי, נתק ברשת או בעיית כבל - מופעל מנגנון החירום <b><span dir="ltr">APIPA - Automatic Private IP Addressing</span></b>.</p>
             
             <div class="spec-grid large-font-grid" style="margin-top: 14px;">
@@ -994,20 +985,20 @@ footer {
               <div class="spec-card"><span>פקודת פתרון תקלות</span><b><span class="mono">ipconfig /renew</span> בשרת התקני</b></div>
             </div>
 
-            <p style="margin-top: 14px; font-size: 18px !important; color: var(--text);">
+            <p style="margin-top: 14px; font-size: 1rem !important; color: var(--muted);">
               <b>תסמין זיהוי בשטח:</b> ראיתם כתובת המתחילה ב-<span class="mono">169.254.x.x</span> במחשב? זהו הדגל האדום לכך שהמחשב אינו מצליח לדבר עם שרת ה-<span dir="ltr">DHCP</span>! ברגע שזה קורה, המחשב יוכל לדבר רק עם מחשבים ששוכנים לידו באותה רשת פיזית, אך <b>לא</b> יוכל לעבור דרך הנתב - רשת ללא <span dir="ltr">Default Gateway</span>.
             </p>
           </div>
 
-          <div class="section-box" style="border-color: var(--amber);">
-            <h4 style="color: var(--amber);">טיפ מטורלל של אחים</h4>
+          <div class="section-box">
+            <h4>טיפ של אחים</h4>
             <p>זוכרים את ראשי התיבות? <b><span dir="ltr">DORA</span></b>! בדיוק כמו דורה החוקרת! <span dir="ltr">Discover, Offer, Request, Acknowledge</span>!</p>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- TAB 5: מבדק ידע -->
+    <!-- TAB 5 -->
     <div id="quiz" class="tab-content">
       
       <div class="quiz-q">
@@ -1102,7 +1093,6 @@ footer {
 
       <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 15px;">
         <button class="nav-btn solid" onclick="checkQuiz()">בדוק תשובות וחשב ציון</button>
-        <!-- כפתור מורה מעוצב -->
         <button class="nav-btn teacher" onclick="teacherAccess()">כניסת מורה</button>
       </div>
 
@@ -1114,7 +1104,7 @@ footer {
 
     </div>
 
-    <!-- TAB 6: רפלקציה -->
+    <!-- TAB 6 -->
     <div id="reflection" class="tab-content">
       <h3 class="comp-title" style="margin-bottom: 20px;">רפלקציה וסיכום אישי</h3>
       
@@ -1123,8 +1113,8 @@ footer {
         <p>תארו מה קורה ברקע בשכבה 7 ברגע שאתם מקלידים <span class="mono">www.youtube.com</span> בדפדפן ולוחצים <span dir="ltr">Enter</span>! באילו פרוטוקולים המחשב משתמש לפי הסדר - רמז: קודם צריך לדעת מי זה השרת... ואז לפנות אליו?</p>
       </div>
 
-      <div class="section-box" style="border-color: var(--violet); background: var(--violet-soft);">
-        <h4 style="color: var(--violet);">התובנות שלי מהשיעור:</h4>
+      <div class="section-box">
+        <h4>התובנות שלי מהשיעור:</h4>
         <textarea class="reflection-textarea" placeholder="כתבו כאן בקצרה: מה הלהיב או חידש לכם היום לגבי שכבת האפליקציה, DNS, DHCP, APIPA או HTTP?"></textarea>
       </div>
     </div>
@@ -1135,32 +1125,32 @@ footer {
 
 <!-- 🤖 צומת העוזר הצף -->
 <div class="bot-widget collapsed" id="botWidget" onclick="expandBot(event)">
-    <div class="bot-header" onclick="toggleBot(event)">
-        <span class="dot"></span> <span>NODE: DAN-GPT // ONLINE</span>
-        <button class="bot-close" onclick="toggleBot(event)" title="סגור/פתח">✕</button>
+  <div class="bot-header" onclick="toggleBot(event)">
+    <span class="dot"></span> <span>NODE: DAN-GPT // ONLINE</span>
+    <button class="bot-close" onclick="toggleBot(event)" title="סגור/פתח">✕</button>
+  </div>
+
+  <div class="bot-body">
+    <img class="bot-avatar" src="https://lh3.googleusercontent.com/d/1fzqv93VKIW_VT8-e1HdJxBmbU2sFnwlb" alt="דן GPT עוזר הפרויקט">
+
+    <p class="greet">שלום תלמידים</p>
+    <p class="lead">אני דן GPT, עוזר השיעור והפרויקט שלכם בשכבה 7. אפשר להיעזר בי ב:</p>
+
+    <div class="bot-chips">
+      <span class="bot-chip">DNS Queries</span>
+      <span class="bot-chip">DHCP DORA</span>
+      <span class="bot-chip">APIPA 169.254</span>
+      <span class="bot-chip">HTTP / HTTPS</span>
+      <span class="bot-chip">Status Codes</span>
+      <span class="bot-chip">Layer 7 PDU</span>
+      <span class="bot-chip">SSH & FTP</span>
+      <span class="bot-chip">Wireshark L7</span>
     </div>
 
-    <div class="bot-body">
-        <img class="bot-avatar" src="https://lh3.googleusercontent.com/d/1fzqv93VKIW_VT8-e1HdJxBmbU2sFnwlb" alt="דן GPT עוזר הפרויקט">
-
-        <p class="greet">שלום תלמידים</p>
-        <p class="lead">אני דן GPT, עוזר השיעור והפרויקט שלכם בשכבה 7. אפשר להיעזר בי ב:</p>
-
-        <div class="bot-chips">
-            <span class="bot-chip">DNS Queries</span>
-            <span class="bot-chip">DHCP DORA</span>
-            <span class="bot-chip">APIPA 169.254</span>
-            <span class="bot-chip">HTTP / HTTPS</span>
-            <span class="bot-chip">Status Codes</span>
-            <span class="bot-chip">Layer 7 PDU</span>
-            <span class="bot-chip">SSH & FTP</span>
-            <span class="bot-chip">Wireshark L7</span>
-        </div>
-
-        <a class="bot-btn" href="https://gemini.google.com/gem/13FFjtbW5S3yg0EE1qBEQiP8GEMwoepKu?usp=sharing" target="_blank" rel="noopener">
-            $ connect --gem dan-gpt
-        </a>
-    </div>
+    <a class="bot-btn" href="https://gemini.google.com/gem/13FFjtbW5S3yg0EE1qBEQiP8GEMwoepKu?usp=sharing" target="_blank" rel="noopener">
+      $ connect --gem dan-gpt
+    </a>
+  </div>
 </div>
 
 <footer>
@@ -1243,14 +1233,14 @@ function checkQuiz() {
   scoreElem.textContent = `${score} / 100`;
 
   if (score === 100) {
-    summaryElem.textContent = 'אלוף/ה! שליטה מוחלטת בשכבת האפליקציה!';
-    summaryElem.style.color = 'var(--green)';
+    summaryElem.textContent = 'אלוף! שליטה מוחלטת בשכבת האפליקציה!';
+    summaryElem.style.color = '#0b6b4a';
   } else if (score >= 70) {
     summaryElem.textContent = 'עבודה טובה מאוד! מומלץ לעבור שוב על השאלות שפספסת.';
-    summaryElem.style.color = 'var(--cyan)';
+    summaryElem.style.color = '#0b5d73';
   } else {
     summaryElem.textContent = 'מומלץ לחזור לטאבי הלמידה ולנסות שוב!';
-    summaryElem.style.color = 'var(--amber)';
+    summaryElem.style.color = '#b45309';
   }
 
   scoreBox.scrollIntoView({ behavior: 'smooth' });
@@ -1270,7 +1260,7 @@ function teacherAccess() {
     checkQuiz();
     alert("תשובות מורה הוגדרו בהצלחה!");
   } else if (pass !== null) {
-    alert("סיסמה שגויה! Access Denied");
+    alert("סיסמה שגויה!");
   }
 }
 </script>
